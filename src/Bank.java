@@ -42,8 +42,8 @@ public class Bank {
         + "Your CVV is "+ Card1Customer1.getCvv()+"\n"
         +"Your Pin is "+ Card1Customer1.getPin()+"\n"
         +"Your Iban is "+ AccountCustomer1.GetIban()+"\n " +
-                "We added 20 "+ AccountCustomer1.GetCurrency()+ " to your account as a welcoming gift, enjoy \n" +
-                "Current Balance is "+ AccountCustomer1.GetBalance() );
+                "We added 20"+ AccountCustomer1.GetCurrency()+ " to your account as a welcoming gift, enjoy \n" +
+                "Current Balance is "+ AccountCustomer1.GetBalance()+ AccountCustomer1.GetCurrency() );
 
     }
 }
