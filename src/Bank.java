@@ -1,6 +1,4 @@
-import Resources.Account;
-import Resources.Card;
-import Resources.Person;
+import Resources.*;
 
 import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
@@ -33,7 +31,7 @@ public class Bank {
         long Iban = ThreadLocalRandom.current().nextLong(10000000,99999999);
 
         Card Card1Customer1 = new Card(CardNo, cvv, pin);
-        Account AccountCustomer1 = new Account(Iban, Currency, Card1Customer1 );
+        DebitAccount AccountCustomer1 = new DebitAccount(Iban, Currency, Card1Customer1 );
         Person Customer1 = new Person(FirstName, LastName, Sex, CNP, AccountCustomer1 );
         AccountCustomer1.deposit(20);
         System.out.println(AccountCustomer1.GetBalance() + " "+ AccountCustomer1.GetCurrency());
@@ -45,5 +43,19 @@ public class Bank {
                 "We added 20"+ AccountCustomer1.GetCurrency()+ " to your account as a welcoming gift, enjoy \n" +
                 "Current Balance is "+ AccountCustomer1.GetBalance()+ AccountCustomer1.GetCurrency() );
 
+
+        Card Card1Customer2 = new Card(12547856998L, 254, 6985);
+        DebitAccount AccountCustomer2= new DebitAccount(52469875654L,"RON", Card1Customer2);
+        Person Customer2 = new Person("Alba", "Iulia", "F", 1254789682L, AccountCustomer2);
+        AccountCustomer2.deposit(50);
+        System.out.println(AccountCustomer1.GetBalance() + " "+AccountCustomer2.GetBalance());
+       AccountCustomer1.Transfer(22, AccountCustomer2);
+        System.out.println(AccountCustomer1.GetBalance() + " "+AccountCustomer2.GetBalance());
+        AccountCustomer1.withdraw(19);
+        System.out.println(AccountCustomer1.GetBalance());
+
+        EconomyAccount Account =  new EconomyAccount(464984646L) ;
+        Account.deposit(1000);
+        System.out.println(Account.GetBalance());
     }
 }

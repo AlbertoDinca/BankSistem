@@ -1,20 +1,17 @@
 package Resources;
 
-public class Account {
+public abstract class Account {
     private long Iban;
     private double Balance;
     private String Currency;
-    private Card Card1;
 
-    public Account(long Iban, String Currency, Card Card1){
+
+    public Account(long Iban, String Currency){
         this.Iban= Iban;
         this.Currency=Currency;
         this.Balance=0;
     }
 
-    public void SetCard(Card Card1){
-        this.Card1 = Card1;
-    }
 
     public long GetIban(){
         return Iban;
@@ -25,7 +22,11 @@ public class Account {
     }
 
     public void withdraw(double amount){
+        if (Balance < amount){
+            System.out.println("Insufficient funds");
+        }else {
         Balance -= amount;
+    }
     }
 
     public double GetBalance(){
@@ -34,4 +35,5 @@ public class Account {
     public String GetCurrency(){
         return Currency;
     }
+
 }
